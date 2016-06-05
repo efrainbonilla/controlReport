@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-30T10:24:45 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCliente" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="02cf4016-c2bb-45e9-a130-56a692eb8515">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conndemo.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="URI_WORKSPACE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[IF($P{URI_WORKSPACE} == null,"",$P{URI_WORKSPACE})]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DIRECTORY_SEPARATOR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[IF($P{DIRECTORY_SEPARATOR} == null,"",$P{DIRECTORY_SEPARATOR})]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM _transporte_cliente WHERE transporte_id= $P{id}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="transporte_id" class="java.lang.Integer"/>
+	<field name="mercantil_id" class="java.lang.Integer"/>
+	<group name="id">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="41">
+				<subreport>
+					<reportElement positionType="Float" x="0" y="20" width="571" height="21" uuid="19623f57-6370-4c4e-8f2e-9a3eb06c9fb8"/>
+					<subreportParameter name="id">
+						<subreportParameterExpression><![CDATA[$F{mercantil_id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="URI_WORKSPACE">
+						<subreportParameterExpression><![CDATA[$P{URI_WORKSPACE}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="DIRECTORY_SEPARATOR">
+						<subreportParameterExpression><![CDATA[$P{DIRECTORY_SEPARATOR}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{URI_WORKSPACE}+$P{DIRECTORY_SEPARATOR}+"rptMercantil.jasper"]]></subreportExpression>
+				</subreport>
+				<textField>
+					<reportElement mode="Opaque" x="0" y="-1" width="572" height="20" backcolor="#D9EDF7" uuid="e151c22c-27ad-4bdf-9829-9ea01d2a9520"/>
+					<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" EMPRESA #"+($V{REPORT_COUNT} + 1)]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="40">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="-1" width="572" height="20" backcolor="#D9EDF7" uuid="526eb323-ce14-4d0d-9e46-0835f2959628"/>
+					<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["MERCANCIA"]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement x="0" y="19" width="571" height="20" uuid="706f6771-f51b-4f4b-a380-81c6e3532b85"/>
+					<subreportParameter name="id">
+						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="URI_WORKSPACE">
+						<subreportParameterExpression><![CDATA[$P{URI_WORKSPACE}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="DIRECTORY_SEPARATOR">
+						<subreportParameterExpression><![CDATA[$P{DIRECTORY_SEPARATOR}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{URI_WORKSPACE}+$P{DIRECTORY_SEPARATOR}+"rptProducto.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+</jasperReport>

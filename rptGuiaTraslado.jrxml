@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-30T00:02:27 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="guia" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e5d69bd3-2569-42d3-a02f-f4cb3eff5cce">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conndemo.xml"/>
+	<parameter name="username" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["ADMIN"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id" class="java.lang.Integer"/>
+	<parameter name="URI_WORKSPACE" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DIRECTORY_SEPARATOR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+guia.id, guia.mercantil_id,DATE_FORMAT(guia.fechsali, '%d-%m-%Y') AS fechsali
+FROM _guia_comerciante guia
+WHERE guia.id= $P{id} 
+ORDER BY guia.id ASC]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="mercantil_id" class="java.lang.Integer"/>
+	<field name="fechsali" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="83">
+				<textField>
+					<reportElement x="0" y="21" width="171" height="20" uuid="e1af9bf8-64c8-41c9-a3ad-04242d4477cd">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fechsali}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="401" y="21" width="171" height="20" uuid="9a3f08e9-ee8a-4506-83d1-155bdcd0d14e"/>
+					<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[String.format("%04d", $F{id})]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="41" width="572" height="20" backcolor="#D9EDF7" uuid="041ed187-e0b9-4030-9638-1dc23bfb5c21">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[EMPRESA IMPORTADORA]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="171" y="1" width="230" height="40" uuid="f966fbb4-38da-47dd-992b-523bf5db79b7"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["GUÍA DE TRASLADO \n EJE FRONTERIZO"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="401" y="1" width="171" height="20" uuid="baf79cb7-2b2f-4490-b999-a5a77e677f41">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[N° DE CONTROL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="1" width="171" height="20" uuid="16214482-d5a3-4bb3-8246-1d4e1e696463">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FECHA DE VIAJE]]></text>
+				</staticText>
+				<subreport>
+					<reportElement positionType="Float" x="0" y="62" width="571" height="21" uuid="5505af6e-24ea-487b-a2ac-c5d957afcc0b"/>
+					<subreportParameter name="id">
+						<subreportParameterExpression><![CDATA[$F{mercantil_id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="URI_WORKSPACE">
+						<subreportParameterExpression><![CDATA[$P{URI_WORKSPACE}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="DIRECTORY_SEPARATOR">
+						<subreportParameterExpression><![CDATA[$P{DIRECTORY_SEPARATOR}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{URI_WORKSPACE}+$P{DIRECTORY_SEPARATOR}+"rptMercantil.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="31" splitType="Prevent">
+				<subreport>
+					<reportElement x="0" y="1" width="572" height="30" isPrintInFirstWholeBand="true" uuid="17f6fd1c-8604-44d8-ad70-510b74851044"/>
+					<subreportParameter name="id">
+						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="URI_WORKSPACE">
+						<subreportParameterExpression><![CDATA[$P{URI_WORKSPACE}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="DIRECTORY_SEPARATOR">
+						<subreportParameterExpression><![CDATA[$P{DIRECTORY_SEPARATOR}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{URI_WORKSPACE}+$P{DIRECTORY_SEPARATOR}+"rptTranporte.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="21">
+			<textField>
+				<reportElement positionType="Float" x="379" y="2" width="155" height="16" uuid="9de7af8f-9e0e-4b3c-b8bf-aff8c9406bb3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Pagína  " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement positionType="FixRelativeToBottom" x="528" y="2" width="40" height="16" uuid="94c3e615-5d7b-47ab-9a96-bed80366356b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" de  " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="1" width="380" height="20" uuid="a15e90ab-70fe-4285-a5fd-d108ef9c5b9f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALA SITUACIONAL - CONTROL DE IMPORTACIÓN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="1" y="0" width="378" height="30" uuid="2e04000b-3d8e-442c-be5d-6bf3a75adceb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MARACAIBO, "+DATEFORMAT(NOW( ),"dd-MM-YYYY   h:mm:ss a")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="190" height="30" uuid="91c9d9f6-812b-4ac0-9896-03569752ef62"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["GENERADO POR: "+$P{username}.toUpperCase( )]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
