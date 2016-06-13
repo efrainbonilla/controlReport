@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2016-05-29T19:35:28 -->
+<!-- 2016-06-12T13:09:25 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptProducto" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7b3bb0cb-6ca8-496e-abba-f83cadf2e9d6">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conndemo.xml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
@@ -206,7 +206,7 @@ WHERE cliente_id= $P{id}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidad}+ " "+ $F{denominacion}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="" isBlankWhenNull="true">
 				<reportElement x="312" y="0" width="75" height="20" uuid="4211d4fc-e7e6-4cd0-86f8-bb621d2d9f52">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -221,7 +221,7 @@ WHERE cliente_id= $P{id}]]>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($F{compra}) + " $"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{compra} == null)? null : new DecimalFormat("#,##0.00").format($F{compra}) + " $"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="387" y="0" width="70" height="20" uuid="af13a9bf-fd09-42cc-8a7b-0b3809f48567">
